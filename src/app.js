@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
@@ -18,20 +19,14 @@ app.use(helmet());
 app.use(compression());
 
 // init db
-require("./dbs/init.mongodb");
-const { countConnect, checkOverLoad } = require("./helpers/check.connect");
+// require("./dbs/init.mongodb");
+// const { countConnect, checkOverLoad } = require("./helpers/check.connect");
 
-countConnect();
-checkOverLoad();
+// countConnect();
+// checkOverLoad();
 
 // init routes
-app.get("/", (req, res, next) => {
-  // const strCompress = "Hello Fantipjs";
-  return res.status(200).json({
-    message: "Welcome Fantipjs!",
-    // data: strCompress.repeat(10000),
-  });
-});
+app.use("", require("./routes"));
 
 // handling error
 

@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/trungdang611/build-nodejs-backend-architecture-eCommerce#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0"
   },
   "devDependencies": {

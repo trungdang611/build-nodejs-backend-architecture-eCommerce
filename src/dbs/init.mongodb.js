@@ -1,11 +1,15 @@
 "use strict";
 
 const mongoose = require("mongoose");
+const {
+  db: { name, password },
+} = require("../configs/config.mongdb");
 const { countConnect } = require("../helpers/check.connect");
 
 // .env
-const connectString = `mongodb+srv://trungdangdev06_db_user:t1gwy2n0TTBdAbtv@cluster0.ppo4owd.mongodb.net/`;
-
+// const connectString = `mongodb+srv://trungdangdev06_db_user:t1gwy2n0TTBdAbtv@cluster0.ppo4owd.mongodb.net/`;
+const connectString = `mongodb+srv://${name}:${password}@cluster0.ppo4owd.mongodb.net/`;
+console.log(connectString);
 class Database {
   constructor() {
     this.connect();
