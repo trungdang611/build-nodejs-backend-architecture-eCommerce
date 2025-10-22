@@ -18,8 +18,15 @@ app.use(helmet());
 // Giảm băng thông khi tải dữ liệu từ payload
 app.use(compression());
 
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
 // init db
-// require("./dbs/init.mongodb");
+require("./dbs/init.mongodb");
 // const { countConnect, checkOverLoad } = require("./helpers/check.connect");
 
 // countConnect();

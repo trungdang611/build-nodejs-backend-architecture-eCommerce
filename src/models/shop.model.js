@@ -20,11 +20,6 @@ var shopSchema = new Schema(
       required: true,
       unique: true,
     },
-    mobile: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     password: {
       type: String,
       required: true,
@@ -32,7 +27,7 @@ var shopSchema = new Schema(
     status: {
       type: String,
       enum: ["active", "inactive"],
-      default: inactive,
+      default: "inactive",
     },
     verify: {
       type: Schema.Types.Boolean,
