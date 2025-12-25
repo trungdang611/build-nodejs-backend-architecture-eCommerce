@@ -26,7 +26,6 @@ class AccessService {
     // dung lean de tra 1 object js thuan, mac dinh tra ve mongoC
 
     // console.log("tesst:: ", name, email, password);
-    a;
     const hodelShop = await shopModel.findOne({ email }).lean();
     if (hodelShop) {
       throw new BadRequestError("Error: Shop already registered!");
@@ -70,10 +69,6 @@ class AccessService {
           message: "publicKeyString, privateKeyString error",
         };
       }
-
-      const publicKeyObject = crypto.createPublicKey(publicKeyString);
-      const privateKeyObject = crypto.createPublicKey(privateKeyString);
-
       const keyStore = await KeyTokenService.createKeyToken({
         userId: newShop._id,
         publicKey,
@@ -90,8 +85,8 @@ class AccessService {
           userId: newShop._id,
           email,
         },
-        publicKeyObject,
-        privateKeyObject
+        publicKeyString,
+        privateKeyString
       );
 
       console.log(`Created Token Success:: `, tokens);
